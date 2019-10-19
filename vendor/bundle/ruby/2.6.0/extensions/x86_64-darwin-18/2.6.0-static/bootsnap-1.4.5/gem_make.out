@@ -1,0 +1,15 @@
+current directory: /Users/iori_jp/environment/teamlab_work/app/vendor/bundle/ruby/2.6.0/gems/bootsnap-1.4.5/ext/bootsnap
+/Users/iori_jp/.rbenv/versions/2.6.1/bin/ruby -I /Users/iori_jp/.rbenv/versions/2.6.1/lib/ruby/site_ruby/2.6.0 -r ./siteconf20191020-47117-5qtzxr.rb extconf.rb
+creating Makefile
+
+current directory: /Users/iori_jp/environment/teamlab_work/app/vendor/bundle/ruby/2.6.0/gems/bootsnap-1.4.5/ext/bootsnap
+make "DESTDIR=" clean
+
+current directory: /Users/iori_jp/environment/teamlab_work/app/vendor/bundle/ruby/2.6.0/gems/bootsnap-1.4.5/ext/bootsnap
+make "DESTDIR="
+compiling bootsnap.c
+linking shared-object bootsnap/bootsnap.bundle
+
+current directory: /Users/iori_jp/environment/teamlab_work/app/vendor/bundle/ruby/2.6.0/gems/bootsnap-1.4.5/ext/bootsnap
+make "DESTDIR=" install
+/usr/bin/install -c -m 0755 bootsnap.bundle ./.gem.20191020-47117-j45wb9/bootsnap
