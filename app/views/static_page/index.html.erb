@@ -1,7 +1,5 @@
 <% provide(:title, "Top") %>
 
-<h2>Keijiban.appとは</h2>
-
     <% if user_signed_in? %>
         <h3><% link_to '掲示板を新規作成する' , '#' %></h3>
 
@@ -12,6 +10,11 @@
         <%# end %>
 
     <% else %>
-        <li><%= link_to "サインイン", signup_path %></li>
-        <li><%= link_to "ログイン", login_path %></li>
+        <h2>Keijiban.appとは</h2>
+        <p>電子掲示板である。</p>
+
+        <div class="center">
+            <%= link_to "ユーザー登録", signup_path, class:"btn btn-sm btn-primary" %>
+            <%= link_to "ログイン", login_path, class:"btn btn-sm btn-primary" %>
+        </div>
     <% end %>
