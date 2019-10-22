@@ -2,36 +2,29 @@
 <div class="container">
   <%= link_to "Topics App",root_path, id: "logo" %>
   <nav class="navbar navbar-light " style="background-color:white">
-  <button class="navbar-toggler" type="button"
-    data-toggle="collapse"
-    data-target="#navmenu1"
-    aria-controls="navmenu1"
-    aria-expanded="false"
-    aria-label="Toggle navigation">
-  <span class="navbar-toggler-icon"></span>
-  </button>
-    <ul class="collapse" id="navmenu1">
+    <ul class="navbar">
       <div class="navbar navbar-expand-lg mr-auto mt-2 mt-lg-0">
-        <li><%= link_to "ホーム",root_path %></li>
-        <li><%= link_to "ヘルプ",help_path %></li>
-        <% if user_signed_in? %>
-          <li><%= link_to "このサイトについて", about_path %></li>
+        <li><%= link_to "TOP",root_path %></li>
+        <li><%= link_to "Topicを作成", '#' %></li>
           <li class="dropdown">
             <a href="#" class="dropdown-toggle" data-toggle="dropdown">
             設定<b class="caret"></b>
             </a>
-            <ul class="dropdown-menu style="background-color:white">
+            <% if user_signed_in? %>
+              <ul class="dropdown-menu" style="background-color:white">
                 <li><%#= link_to current_user.name, scout_show_path(current_user.scout) %></li>
                 <li><%= link_to "アカウント設定", edit_user_registration_path %></li>
                 <li><%#= link_to "スカウト設定", scout_edit_path(current_user.scout) %></li>
                 <li class="dropdown-divider"></li>
                 <li><%=link_to "ログアウト", logout_path, method: :delete %></li>
-            </ul>
-          </li>
-        <% else %>
-          <li><%= link_to "サインイン", signup_path %></li>
-          <li><%= link_to "ログイン", login_path %></li>
-        <% end %>
+              </ul>
+            </li>
+            <% else %>
+              <ul class="dropdown-menu">
+                <li><%= link_to "サインイン", signup_path %></li>
+                <li><%= link_to "ログイン", login_path %></li>
+              </ul>
+          <% end %>
     </div>
     </ul>
   </nav>
