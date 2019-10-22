@@ -1,0 +1,10 @@
+<h2>Top Page</h2>
+
+    <% if user_signed_in? %>
+        <h3>現在のユーザー<h3>
+        <p><%= @user.email %></p>
+
+    <% else %>
+        <li><%= link_to "サインイン", signup_path %></li>
+        <li><%= link_to "ログイン", login_path %></li>
+    <% end %>
