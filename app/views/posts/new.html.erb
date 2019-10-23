@@ -1,2 +1,13 @@
-<h1>Posts#new</h1>
-<p>Find me in app/views/posts/new.html.erb</p>
+<% provide(:title, '新規コメント') %>
+<% provide(:button_text, 'コメントを投稿') %>
+<% provide(:url, post_create_path) %>
+
+<h2>新しくTopicを作成する</h2>
+
+<%= form_with model: @topic , url: yield(:url) do |f| %>
+    
+    <%= f.label :title %>
+    <%= f.text_field :title, class:'form-control' %>
+
+    <%=f.submit yield(:button_text), class:"btn btn-primary" %>
+<% end %>

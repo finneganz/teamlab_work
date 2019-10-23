@@ -1,15 +1,19 @@
 Rails.application.routes.draw do
 
-  root 'static_page#index'
+  root 'topics#index'
   get '/about' => 'static_page#about', as: :about
   get '/help' => 'static_page#help', as: :help
   get '/contact' => 'static_page#contact', as: :contact
 
-  get '/topic'  =>  'topics#index' , as: :topic_index
+  #get '/topic'  =>  'topics#index' , as: :topic_index
   get '/topic/newtopic' => 'topics#new' , as: :topic_form
   post '/topic/newtopic' => 'topics#create' , as: :topic_create
   get '/topic/:id' => 'topics#show' , as: :topic_show
-  resources :posts
+
+  #get '/topic/:id/post'  =>  'topics#index' , as: :topic_index
+  get '/topic/:id/newpost' => 'posts#new' , as: :post_form
+  post '/topic/:id/newpost' => 'posts#create' , as: :post_create
+  #get '/topic/:id/' => 'topics#show' , as: :topic_show
 
   devise_for :users, :controllers => {
     :registrations => 'users/registrations',

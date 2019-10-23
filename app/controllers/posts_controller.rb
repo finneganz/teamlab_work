@@ -10,9 +10,8 @@ class PostsController < ApplicationController
   def create
     @post = Post.new(post_params)
     @post.user_id = current_user.id
-    @post.topic_id = 
-    if @topic.save
-      redirect_to topic_show_path(@topic.id)
+    if @post.save
+      redirect_to topic_show_path(@post.topic_id)
     else
       render 'new'
     end
@@ -25,7 +24,7 @@ class PostsController < ApplicationController
   protected
 
     def post_params
-      params.require(:post).permit(:name , :content)
+      params.require(:post).permit(:topic_id , :name , :content)
     end
 
 end
