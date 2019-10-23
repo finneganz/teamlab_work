@@ -11,6 +11,11 @@ class TopicsController < ApplicationController
 
   def create
     @topic = Topic.create(topic_params)
+    if @topic.save
+      redirect_to @topic
+    else
+      render 'new'
+    end
   end
 
   def destroy
