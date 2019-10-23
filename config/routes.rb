@@ -5,7 +5,10 @@ Rails.application.routes.draw do
   get '/help' => 'static_page#help', as: :help
   get '/contact' => 'static_page#contact', as: :contact
 
-  resources :topics
+  get '/topic'  =>  'topics#index' , as: :topic_index
+  get '/topic/newtopic' => 'topics#new' , as: :topic_form
+  post '/topic/newtopic' => 'topics#create' , as: :topic_create
+  get '/topic/:id' => 'topics#show' , as: :topic_show
   resources :posts
 
   devise_for :users, :controllers => {

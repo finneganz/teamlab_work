@@ -4,15 +4,18 @@ class TopicsController < ApplicationController
   end
 
   def new
+    @topic = Topic.new
   end
 
   def show
+    @topic = Topic.find(params[:id])
   end
 
   def create
-    @topic = Topic.create(topic_params)
+    @topic = Topic.new(topic_params)
+    @topic.user_id = current_user.id
     if @topic.save
-      redirect_to @topic
+      redirect_to topic_show_path(@topic.id)
     else
       render 'new'
     end
