@@ -6,7 +6,7 @@
         <h3>掲示板一覧</h3>
         <%= @topics.each do |t| %>
             <ul><p><%= link_to t.title , topic_show_path(t.id) %></p>
-                <li style="list-style: none"><%#=  %></li>
+                <li style="list-style: none"><%#= t.post.content %></li>
             </ul>
         <% end %>
 

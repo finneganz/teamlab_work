@@ -2,12 +2,12 @@
 <% provide(:button_text, 'コメントを投稿') %>
 <% provide(:url, post_create_path) %>
 
-<h2>新しくTopicを作成する</h2>
+<h2>新しくpostを投稿する</h2>
 
-<%= form_with model: @topic , url: yield(:url) do |f| %>
+<%= form_with model: @post , url: yield(:url) do |f| %>
     
-    <%= f.label :title %>
-    <%= f.text_field :title, class:'form-control' %>
+    <%= f.label :content , 'コメント内容' %>
+    <%= f.text_field :content, class:'form-control' %>
 
     <%=f.submit yield(:button_text), class:"btn btn-primary" %>
 <% end %>

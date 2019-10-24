@@ -1,6 +1,7 @@
 class PostsController < ApplicationController
   def new
     @post = Post.new
+    @post.topic_id = params[:id]
   end
 
   def show

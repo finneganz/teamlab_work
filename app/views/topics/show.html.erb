@@ -1,7 +1,8 @@
 <h2><%= @topic.title %></h2>
     <ul>
         <div class="topic_show">
-
+            <li><%= link_to 'コメントを投稿する' , post_form_path(@topic.id) %></li>
+            <li><%#=  %></li>
         
         </div>
     </ul>
