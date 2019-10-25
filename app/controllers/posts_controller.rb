@@ -1,7 +1,8 @@
 class PostsController < ApplicationController
   def new
     @post = Post.new
-    @post.topic_id = params[:id]
+    @topic = Topic.find(params[:id])
+    @post.topic_id = @topic.id
   end
 
   def show
@@ -10,6 +11,8 @@ class PostsController < ApplicationController
 
   def create
     @post = Post.new(post_params)
+    @topic = Topic.find(params[:id])
+    @post.topic_id = @topic.id
     @post.user_id = current_user.id
     if @post.save
       redirect_to topic_show_path(@post.topic_id)
