@@ -10,7 +10,6 @@ Rails.application.routes.draw do
   get '/topic/newtopic' => 'topics#new' , as: :topic_form
   post '/topic/newtopic' => 'topics#create' , as: :topic_create
   get '/topic/:tpc_id' => 'topics#show' , as: :topic_show
-  #get '/topic/:tpc_id' => 'topics#destroy' 
   delete '/topic/:tpc_id' => 'topics#destroy' , as: :topic_destroy
   
   # コメント周りのrouting

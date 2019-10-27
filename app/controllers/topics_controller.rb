@@ -1,4 +1,6 @@
 class TopicsController < ApplicationController
+  before_action :set_topic, only: [:show,:edit,:update,:destroy]
+
   def index
     @topics = Topic.all
     @posts = Post.all
@@ -9,9 +11,11 @@ class TopicsController < ApplicationController
   end
 
   def show
-    @topic = Topic.find(params[:tpc_id])
     @posts = @topic.posts
   end 
+
+  def edit
+  end
 
   def create
     @topic = Topic.new(topic_params)
@@ -24,7 +28,6 @@ class TopicsController < ApplicationController
   end
 
   def destroy
-    @topic = Topic.find(params[:tpc_id])
     @topic.destroy
     redirect_to root_path
   end
@@ -33,6 +36,10 @@ class TopicsController < ApplicationController
 
   def topic_params
     params.require(:topic).permit(:title)
+  end
+
+  def set_topic
+    @topic = Topic.find(params[:tpc_id])
   end
 
 end

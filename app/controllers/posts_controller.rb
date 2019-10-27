@@ -1,12 +1,13 @@
 class PostsController < ApplicationController
+  before_action :set_post, only: [:edit,:update,:delete]
+
   def new
     @post = Post.new
     @topic = Topic.find(params[:tpc_id])
     @post.topic_id = @topic.id
   end
 
-  def show
-    @post = Post.find(params[:pst_id])
+  def edit
   end
 
   def create
@@ -22,9 +23,16 @@ class PostsController < ApplicationController
   end
 
   def delete
-    @post = Post.find(params[:pst_id])
     @post.delete
     redirect_to topic_show_path(params[:tpc_id])
+  end
+
+  def update
+    if @post.update(post_params)
+      redirect_to topic_show_path(@post.topic_id)
+    else
+      render 'edit'
+    end
   end
 
 
@@ -32,6 +40,10 @@ class PostsController < ApplicationController
 
     def post_params
       params.require(:post).permit(:topic_id , :name , :content)
+    end
+
+    def set_post
+      @post = Post.find(params[:pst_id])
     end
 
 end
