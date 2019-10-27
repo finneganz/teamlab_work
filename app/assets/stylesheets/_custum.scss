@@ -50,15 +50,39 @@ h1, h2, h3, h4, h5, h6 {
       font-weight:normal;
       color: #000000;
     }
-  
+
+    h3 {
+      font-size: 1.0em;
+      letter-spacing: -1px;
+      margin-bottom: 30px;
+      text-align:left;
+      font-weight:normal;
+      color: #000000;
+    }
+
+    h4 {
+      font-size: 0.8em;
+      letter-spacing: -1px;
+      margin-bottom: 30px;
+      text-align:left;
+      font-weight:normal;
+      color: #000000;
+    }
+
   p {
     font-size: 0.9em;
     line-height: 1.7em;
   }
   
   ul {
+    clear:left;
     list-style: none;
     padding: left;
+    margin: 0 0 10px 0;
+    li {
+      float:left;
+      margin-left:25px;
+    }
   }
   
   /* typography ENDLINE */

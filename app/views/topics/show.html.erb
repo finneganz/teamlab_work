@@ -1,8 +1,17 @@
 <h2><%= @topic.title %></h2>
     <ul>
+        <h3>コメント一覧</h3>
         <div class="topic_show">
-            <li><%= link_to 'コメントを投稿する' , post_form_path(@topic.id) %></li>
-            <li><%#=  %></li>
-        
+            <%= @posts.each do |p| %>
+                <li>投稿者：<%= p.name %></li>
+                <li>コメント：<%= p.content %></li>
+                <li><%= link_to '削除', post_delete_path(p.topic_id, p.id), method: :delete, 
+                data: { confirm: '本当に削除して良いですか?',
+                cancel: 'やめる',
+                commit: '削除する'}, title: '削除確認' %>
+                 <%#= link_to '更新', post_update_path(p.id) %></li>
+                </br>
+            <% end %>
         </div>
+        <%= link_to 'コメントを投稿する' , post_form_path(@topic.id) , class:"btn btn-sm btn-secondary" %>
     </ul>

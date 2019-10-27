@@ -5,14 +5,19 @@
 
         <h3>掲示板一覧</h3>
         <%= @topics.each do |t| %>
-            <ul><p><%= link_to t.title , topic_show_path(t.id) %></p>
-                <li style="list-style: none"><%#= t.post.content %></li>
+            <ul><li><%= link_to t.title , topic_show_path(t.id) %></li>
+                <% if current_user.id == t.user_id %>
+                    <li><%= link_to '削除', topic_destroy_path(t.id) , method: :delete,  
+                    data: { confirm: '本当に削除して良いですか?',
+                    cancel: 'やめる',
+                    commit: '削除する'}, title: '削除確認' %></li>
+                <% end %>
             </ul>
         <% end %>
 
     <% else %>
         <h2>Keijiban.appとは</h2>
-        <p>電子掲示板である。</p>
+        <p>ログインすると、掲示板の新規作成とコメント投稿が可能になる、電子掲示板である。</p>
 
         <div class="center">
             <%= link_to "ユーザー登録", signup_path, class:"btn btn-sm btn-primary" %>

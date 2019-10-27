@@ -5,6 +5,9 @@
 <h2>新しくpostを投稿する</h2>
 
 <%= form_with model: @post , url: yield(:url) do |f| %>
+
+    <%= f.label :name , '投稿者名' %>
+    <%= f.text_field :name, class:'form-control' %>    
     
     <%= f.label :content , 'コメント内容' %>
     <%= f.text_field :content, class:'form-control' %>

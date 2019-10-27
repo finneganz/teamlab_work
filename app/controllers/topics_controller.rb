@@ -9,9 +9,9 @@ class TopicsController < ApplicationController
   end
 
   def show
-    @topic = Topic.find(params[:id])
-    @posts = Post.where(topic_id: params[:id])
-  end
+    @topic = Topic.find(params[:tpc_id])
+    @posts = @topic.posts
+  end 
 
   def create
     @topic = Topic.new(topic_params)
@@ -24,6 +24,9 @@ class TopicsController < ApplicationController
   end
 
   def destroy
+    @topic = Topic.find(params[:tpc_id])
+    @topic.destroy
+    redirect_to root_path
   end
 
   protected

@@ -1,17 +1,17 @@
 class PostsController < ApplicationController
   def new
     @post = Post.new
-    @topic = Topic.find(params[:id])
+    @topic = Topic.find(params[:tpc_id])
     @post.topic_id = @topic.id
   end
 
   def show
-    @post = Post.find(params[:id])
+    @post = Post.find(params[:pst_id])
   end
 
   def create
     @post = Post.new(post_params)
-    @topic = Topic.find(params[:id])
+    @topic = Topic.find(params[:tpc_id])
     @post.topic_id = @topic.id
     @post.user_id = current_user.id
     if @post.save
@@ -21,7 +21,10 @@ class PostsController < ApplicationController
     end
   end
 
-  def destroy
+  def delete
+    @post = Post.find(params[:pst_id])
+    @post.delete
+    redirect_to topic_show_path(params[:tpc_id])
   end
 
 
