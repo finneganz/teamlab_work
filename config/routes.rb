@@ -29,9 +29,12 @@ Rails.application.routes.draw do
   } 
   
   devise_scope :user do
-    get "user/:id", :to => "users/registrations#detail", as: :detail
-    get "signup", :to => "users/registrations#new", as: :signup
-    get "login", :to => "users/sessions#new", as: :login
-    get "logout", :to => "users/sessions#destroy", as: :logout
+    get 'user/:id', :to => 'users/registrations#detail', as: :detail
+    get 'signup', :to => 'users/registrations#new', as: :signup
+    get 'login', :to => 'users/sessions#new', as: :login
+    get 'logout', :to => 'users/sessions#destroy', as: :logout
+    delete 'logout', :to => 'users/sessions#destroy'
   end
+
+  resources :users
 end
