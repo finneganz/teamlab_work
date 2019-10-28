@@ -1,8 +1,8 @@
 <h2><%= @topic.title %></h2>
     <ul>
         <h3>コメント一覧</h3>
-        <div class="topic_show">
-            <%= @posts.each do |p| %>
+        <div>
+            <% @posts.each do |p| %>
                 <li>投稿者：<%= p.name %></li>
                 <li>コメント：<%= p.content %></li>
                 <li><%= link_to '削除', post_delete_path(p.topic_id, p.id), method: :delete, 
@@ -13,5 +13,6 @@
                 </br>
             <% end %>
         </div>
+        </br>
         <%= link_to 'コメントを投稿する' , post_form_path(@topic.id) , class:"btn btn-sm btn-secondary" %>
     </ul>
