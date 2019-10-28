@@ -8,9 +8,10 @@
             <ul><li><%= link_to t.title , topic_show_path(t.id) %></li>
                 <% if current_user.id == t.user_id %>
                     <li><%= link_to '削除', topic_destroy_path(t.id) , method: :delete,  
-                    data: { confirm: '本当に削除して良いですか?',
-                    cancel: 'やめる',
-                    commit: '削除する'}, title: '削除確認' %></li>
+                        data: { confirm: '本当に削除して良いですか?',
+                        cancel: 'やめる',
+                        commit: '削除する'}, title: '削除確認' %></li>
+                    <li><%= link_to '更新', topic_edit_path(t.id) %></li>
                 <% end %>
             </ul>
         <% end %>

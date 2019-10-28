@@ -32,6 +32,14 @@ class TopicsController < ApplicationController
     redirect_to root_path
   end
 
+  def update
+    if @topic.update(topic_params)
+      redirect_to root_path
+    else
+      render 'edit'
+    end
+  end
+
   protected
 
   def topic_params

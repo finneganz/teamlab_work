@@ -1,0 +1,13 @@
+<% provide(:title, 'Topicを修正する') %>
+<% provide(:button_text, 'Topicを修正') %>
+<% provide(:url, topic_update_path) %>
+
+<h2>Topicを修正する</h2>
+
+<%= form_with model: @topic , url: yield(:url) do |f| %>
+    
+    <%= f.label :title %>
+    <%= f.text_field :title, class:'form-control' %>
+
+    <%=f.submit yield(:button_text), class:"btn btn-primary" %>
+<% end %>
